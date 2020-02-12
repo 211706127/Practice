@@ -44,36 +44,37 @@ while 1:
     if sen[0] == "整数" :
         if sen[2] == "等于":
             carry(sen[1], sen[3])
-    elif sen[0] == tuple(name.keys())[0]:
-        if sen[1] == "减少":
-            minus(name[tuple(name.keys())[0]],sen[2])
-        elif sen[1] == "增加":
-            add(name[tuple(name.keys())[0]], sen[2])
-    elif sen[0] == "看看":
-        if sen[1] == tuple(name.keys())[0]:
-            print(name[tuple(name.keys())[0]])
-    elif sen[0] == "如果":
-        if sen[1] == tuple(name.keys())[0]:
-            if sen[2] == "大于":
-                if trann(name[tuple(name.keys())[0]]) > trann(sen[3]):
-                    if sen[4] == "则":
-                        if sen[5] == "看看":
-                            print(sen[6])
-                else:
-                    if sen[7] == "否则":
-                        if sen[8] == "看看":
-                            print(sen[9])
-            elif sen[2] == "小于":
-                if trann(name[tuple(name.keys())[0]]) < trann(sen[3]):
-                    if sen[4] == "则":
-                        if sen[5] == "看看":
-                            print(sen[6])
-                else:
-                    if sen[7] == "否则":
-                        if sen[8] == "看看":
-                            print(sen[9])
-
-
+    elif len(name)!=0:#在这里加上对name长度的判断  当name内没有东西时将不运行加减
+        if sen[0] == tuple(name.keys())[0]:
+            if sen[1] == "减少":
+                minus(name[tuple(name.keys())[0]],sen[2])
+            elif sen[1] == "增加":
+                add(name[tuple(name.keys())[0]], sen[2])
+        elif sen[0] == "看看":
+            if sen[1] == tuple(name.keys())[0]:
+                print(name[tuple(name.keys())[0]])
+        elif sen[0] == "如果":
+            if sen[1] == tuple(name.keys())[0]:
+                if sen[2] == "大于":
+                    if trann(name[tuple(name.keys())[0]]) > trann(sen[3]):
+                        if sen[4] == "则":
+                            if sen[5] == "看看":
+                                print(sen[6])
+                    else:
+                        if sen[7] == "否则":
+                            if sen[8] == "看看":
+                                print(sen[9])
+                elif sen[2] == "小于":
+                    if trann(name[tuple(name.keys())[0]]) < trann(sen[3]):
+                        if sen[4] == "则":
+                            if sen[5] == "看看":
+                                print(sen[6])
+                    else:
+                        if sen[7] == "否则":
+                            if sen[8] == "看看":
+                                print(sen[9])
+        else:#在name中存入一个变量名之后依旧还有格式错误使触发
+            print("格式有误!")  
     else:
         print("格式有误!")
 
